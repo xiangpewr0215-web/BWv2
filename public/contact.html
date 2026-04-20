@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | B+W Builders</title>
+        <!-- 网站图标 -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon.png">
+
+    <meta name="description" content="Get in touch with B+W Builders for your construction and design needs. Request a consultation or quote.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    
+    <!-- Header 容器 -->
+    <div id="header-container"></div>
+    
+    <main>
+        
+        <section class="section" style="padding-bottom: 0;">
+            <div class="container">
+                <h1 style="text-align: center;">Contact Us</h1>
+                <p style="text-align: center; max-width: 800px; margin: 0 auto; font-size: 1.25rem;">We'd love to hear from you. Let's discuss your project.</p>
+            </div>
+        </section>
+        
+        <section class="section">
+            <div class="container">
+                <div class="contact-grid">
+                    
+                    <!-- 联系信息 -->
+                    <div class="contact-info">
+                        <h2 style="margin-bottom: var(--spacing-md);">Get in Touch</h2>
+                        
+                        <div class="contact-item">
+                            <strong>Office Address</strong>
+                            <p>7 Defu Lane 10 #01-536<br>Singapore 539188</p>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <strong>Phone</strong>
+                            <p>+65 6283 5329</p>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <strong>Email</strong>
+                            <p>Enquiry@boonwoh.com.sg</p>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <strong>Business Hours</strong>
+                            <p>Monday - Friday: 9:00 AM - 6:00 PM<br>Saturday - Sunday: Closed</p>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <strong>Follow Us</strong>
+                            <p>
+                                <a href="https://www.instagram.com/bwbuilders_/reels/" style="margin-right: 1rem;">Instagram</a>
+                                <a href="https://sg.linkedin.com/company/boonwoh" style="margin-right: 1rem;">LinkedIn</a>
+                                <a href="#">Facebook</a>
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- 联系表单 -->
+                    <div class="contact-form">
+                        <h2 style="margin-bottom: var(--spacing-md);">Send Us a Message</h2>
+                        
+                        <!-- 表单消息显示区域 -->
+                        <div id="formMessage" class="form-message" style="display: none;"></div>
+                        
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label for="name">Full Name *</label>
+                                <input type="text" id="name" name="name" required placeholder="John Smith">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" required placeholder="john@example.com">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <select id="subject" name="subject">
+                                    <option value="">-- Select a subject --</option>
+                                    <option value="General Inquiry">General Inquiry</option>
+                                    <option value="Residential Project">Residential Project</option>
+                                    <option value="Commercial Project">Commercial Project</option>
+                                    <option value="Renovation Estimate">Renovation Estimate</option>
+                                    <option value="Career Opportunities">Career Opportunities</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">Message *</label>
+                                <textarea id="message" name="message" required placeholder="Please describe your project or inquiry..."></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary btn-block">Send Message</button>
+                        </form>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+        
+        <!-- 真实地图：Google Maps 嵌入式 -->
+        <section style="padding-bottom: var(--spacing-xl);">
+            <div class="container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4362.636771014426!2d103.89223517535993!3d1.3587434986284028!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da17c97ee86be1%3A0x1a4e6988f5d207a3!2sB%2BW%20Builders%20Private%20Limited!5e1!3m2!1sen!2ssg!4v1776665846311!5m2!1sen!2ssg"
+                        width="100%" height="500" 
+                        style="border: 1px solid var(--soft-gray);" 
+                        allowfullscreen="" loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </section>
+        
+    </main>
+    
+    <!-- Footer 容器 -->
+    <div id="footer-container"></div>
+    
+    <script src="js/main.js"></script>
+    <script src="js/load-components.js"></script>
+</body>
+</html>

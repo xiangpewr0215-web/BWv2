@@ -1,0 +1,741 @@
+/* ===== B+W Builders - Global Styles ===== */
+/* 配色方案：黑白灰主题，体现专业与高级感 */
+:root {
+    --pure-black: #000000;
+    --rich-black: #0A0A0A;
+    --dark-gray: #1A1A1A;
+    --mid-gray: #4A4A4A;
+    --light-gray: #9A9A9A;
+    --soft-gray: #D4D4D4;
+    --off-white: #F5F5F5;
+    --pure-white: #FFFFFF;
+    
+    --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    --font-secondary: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+    
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 4rem;
+    --spacing-xl: 6rem;
+    
+    --border-radius: 0;
+    --transition: all 0.3s ease;
+}
+
+/* ===== 基础重置 ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-primary);
+    font-weight: 300;
+    line-height: 1.6;
+    color: var(--dark-gray);
+    
+    background-image: url('../images/background-pattern.svg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-color: var(--pure-white);
+    
+    position: relative;      /* 为伪元素提供定位上下文 */
+    min-height: 100vh;
+    
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* 添加半透明白色遮罩，让文字更清晰 */
+body::before {
+    content: '';
+    position: fixed;          /* fixed 与背景 attachment 保持一致 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.77);  /* 白色遮罩，85% 不透明度 */
+    z-index: -1;              /* 放在内容后面，背景前面 */
+    pointer-events: none;     /* 确保不会干扰点击 */
+}
+
+/* ===== 排版 ===== */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-secondary);
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--rich-black);
+    letter-spacing: -0.02em;
+}
+
+h1 {
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    margin-bottom: var(--spacing-sm);
+}
+
+h2 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    margin-bottom: var(--spacing-md);
+}
+
+h3 {
+    font-size: clamp(1.25rem, 3vw, 1.75rem);
+    margin-bottom: var(--spacing-sm);
+}
+
+p {
+    margin-bottom: var(--spacing-sm);
+    color: var(--mid-gray);
+}
+
+a {
+    color: var(--rich-black);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+a:hover {
+    color: var(--mid-gray);
+}
+
+/* ===== 容器与布局 ===== */
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+.section {
+    padding: var(--spacing-xl) 0;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 2px;
+    background-color: var(--rich-black);
+    margin: var(--spacing-sm) auto 0;
+}
+
+/* ===== 导航栏 ===== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem var(--spacing-md);
+    background-color: var(--pure-white);
+    border-bottom: 1px solid var(--soft-gray);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    flex-wrap: wrap;
+}
+
+.logo {
+    font-family: var(--font-secondary);
+    font-size: 1.75rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: var(--rich-black);
+}
+
+.logo span {
+    font-weight: 300;
+    color: var(--mid-gray);
+}
+
+.nav-links {
+    display: flex;
+    gap: var(--spacing-md);
+    list-style: none;
+}
+
+.nav-links a {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 400;
+    padding-bottom: 0.25rem;
+    border-bottom: 1px solid transparent;
+    transition: var(--transition);
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    border-bottom-color: var(--rich-black);
+}
+
+/* 移动端菜单按钮 */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--rich-black);
+}
+
+/* ===== 按钮 ===== */
+.btn {
+    display: inline-block;
+    padding: 0.85rem 2.5rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+    border: 1px solid var(--rich-black);
+    background-color: transparent;
+    color: var(--rich-black);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-primary {
+    background-color: var(--rich-black);
+    color: var(--pure-white);
+}
+
+.btn-primary:hover {
+    background-color: var(--mid-gray);
+    border-color: var(--mid-gray);
+    color: var(--pure-white);
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--rich-black);
+}
+
+.btn-outline:hover {
+    background-color: var(--rich-black);
+    color: var(--pure-white);
+}
+
+.btn-block {
+    display: block;
+    width: 100%;
+}
+
+/* ===== 页脚 ===== */
+.footer {
+    background-color: var(--rich-black);
+    color: var(--light-gray);
+    padding: var(--spacing-lg) 0 var(--spacing-md);
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+.footer h3 {
+    color: var(--pure-white);
+    font-size: 1.1rem;
+    margin-bottom: var(--spacing-sm);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.footer p {
+    color: var(--light-gray);
+    font-size: 0.9rem;
+}
+
+.footer a {
+    color: var(--light-gray);
+}
+
+.footer a:hover {
+    color: var(--pure-white);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: var(--spacing-md);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.85rem;
+}
+
+/* ===== 卡片 ===== */
+.card {
+    background-color: var(--pure-white);
+    border: 1px solid var(--soft-gray);
+    padding: var(--spacing-md);
+    transition: var(--transition);
+}
+
+.card:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+/* ===== 表单样式 ===== */
+.form-group {
+    margin-bottom: var(--spacing-sm);
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--dark-gray);
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 0.85rem;
+    font-size: 1rem;
+    font-family: var(--font-primary);
+    border: 1px solid var(--soft-gray);
+    background-color: var(--pure-white);
+    transition: var(--transition);
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--rich-black);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* 表单错误提示 */
+.form-message {
+    padding: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
+    border-radius: 0;
+    font-size: 0.9rem;
+}
+
+.form-message.success {
+    background-color: var(--off-white);
+    color: var(--rich-black);
+    border-left: 3px solid var(--rich-black);
+}
+
+.form-message.error {
+    background-color: #FEF2F2;
+    color: #991B1B;
+    border-left: 3px solid #991B1B;
+}
+
+/* ===== Hero 区域 ===== */
+.hero {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    
+    /* 背景图片设置 */
+    background-image: url('../images/hero-bg.png');  /* 根据实际文件名修改 */
+    background-size: cover;          /* 图片覆盖整个区域 */
+    background-position: center;     /* 图片居中显示 */
+    background-repeat: no-repeat;    /* 不重复 */
+    
+    position: relative;
+    overflow: hidden;
+}
+
+/* 添加一层半透明黑色遮罩，让文字更清晰可读 */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);  /* 黑色遮罩，透明度可调整 */
+    z-index: 1;
+}
+
+/* 确保文字在遮罩之上 */
+.hero-content {
+    max-width: 900px;
+    padding: var(--spacing-md);
+    position: relative;
+    z-index: 2;
+    color: var(--pure-white);  /* 文字改为白色，更清晰 */
+}
+
+/* 可选：调整 h1 和 p 的颜色，如果背景较深 */
+.hero h1 {
+    color: var(--pure-white);
+}
+
+.hero p {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.hero .btn-outline {
+    border-color: var(--pure-white);
+    color: var(--pure-white);
+}
+
+.hero .btn-outline:hover {
+    background-color: var(--pure-white);
+    color: var(--rich-black);
+}
+
+/* ===== 网格布局 ===== */
+.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-lg);
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-md);
+}
+
+.grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-md);
+}
+
+/* ===== 团队卡片 ===== */
+.team-card {
+    text-align: center;
+}
+
+.team-image {
+    width: 100%;
+    aspect-ratio: 1 / 1.3;
+    background-color: var(--soft-gray);
+    margin-bottom: var(--spacing-sm);
+    /* 图片占位 - 实际使用时替换为真实图片 */
+}
+
+.team-card h3 {
+    margin-bottom: 0.25rem;
+}
+
+.team-role {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--mid-gray);
+    margin-bottom: var(--spacing-sm);
+}
+
+/* ===== 团队页面网格统一 ===== */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-md);
+}
+
+/* 当只有 1 个卡片时，自动居中 */
+.team-grid-center {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--spacing-md);
+}
+
+.team-grid-center .team-card {
+    flex: 0 0 280px;           /* 固定宽度，与 grid-4 的列宽接近 */
+    max-width: 100%;
+}
+
+/* 响应式：在小屏幕上调整为 2 列或 1 列 */
+@media (max-width: 1024px) {
+    .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .team-grid-center .team-card {
+        flex-basis: 100%;
+        max-width: 350px;
+        margin: 0 auto;
+    }
+}
+
+/* ===== 服务卡片 ===== */
+.service-card {
+    padding: var(--spacing-md);
+    border: 1px solid var(--soft-gray);
+}
+
+.service-image {
+    width: 100%;
+    aspect-ratio: 1 / 1;          /* 保持正方形 */
+    overflow: hidden;
+    margin-bottom: var(--spacing-sm);
+}
+
+.service-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;            /* 图片裁剪填充，不变形 */
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.service-card h3 {
+    margin-bottom: var(--spacing-xs);
+}
+
+/* ===== 项目图片展示 ===== */
+.project-image {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+/* ===== 服务特性图片 ===== */
+.service-feature-image {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border: 1px solid var(--soft-gray);
+}
+
+.service-feature-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.service-feature-image:hover img {
+    transform: scale(1.02);
+}
+
+/* ===== About 页面故事图片 ===== */
+.about-image {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border: 1px solid var(--soft-gray);  /* 添加极细边框，更精致 */
+}
+
+.about-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+
+/* ===== 统计数据 ===== */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-md);
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 3rem;
+    font-family: var(--font-secondary);
+    font-weight: 400;
+    color: var(--rich-black);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--mid-gray);
+}
+
+/* ===== 产品展示 ===== */
+.product-card {
+    border: 1px solid var(--soft-gray);
+}
+
+.product-image {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    background-color: var(--soft-gray);
+    /* 图片占位 */
+}
+
+.product-info {
+    padding: var(--spacing-sm);
+}
+
+.product-info h3 {
+    margin-bottom: 0.25rem;
+}
+
+.product-price {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--rich-black);
+    margin-bottom: var(--spacing-sm);
+}
+
+/* ===== 联系页面布局 ===== */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: var(--spacing-lg);
+}
+
+.contact-info {
+    padding: var(--spacing-md);
+    background-color: var(--off-white);
+}
+
+.contact-item {
+    margin-bottom: var(--spacing-sm);
+}
+
+.contact-item strong {
+    display: block;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    margin-bottom: 0.25rem;
+}
+
+.contact-form {
+    padding: var(--spacing-md);
+    border: 1px solid var(--soft-gray);
+}
+
+/* ===== 筛选按钮 ===== */
+.filter-buttons {
+    display: flex;
+    gap: var(--spacing-sm);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 0.6rem 2rem;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.filter-btn.active {
+    background-color: var(--rich-black);
+    color: var(--pure-white);
+}
+
+.filter-btn:hover {
+    background-color: var(--rich-black);
+    color: var(--pure-white);
+}
+
+/* ===== 响应式设计 ===== */
+@media (max-width: 1024px) {
+    .grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 1rem var(--spacing-md);
+    }
+    
+    .menu-toggle {
+        display: block;
+    }
+    
+    .nav-links {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        gap: var(--spacing-sm);
+        padding: var(--spacing-md) 0;
+    }
+    
+    .nav-links.active {
+        display: flex;
+    }
+    
+    .grid-2,
+    .grid-3,
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .section {
+        padding: var(--spacing-lg) 0;
+    }
+    
+    .hero {
+        min-height: 60vh;
+    }
+}
+
+@media (max-width: 480px) {
+    .grid-4 {
+        grid-template-columns: 1fr;
+    }
+    
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .hero-buttons .btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .service-feature-image {
+        order: 0 !important;  /* 取消桌面端的交错顺序 */
+    }
+}
