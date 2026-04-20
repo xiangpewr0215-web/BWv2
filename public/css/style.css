@@ -354,7 +354,7 @@ a:hover {
 
 /* ===== Hero 区域 ===== */
 .hero {
-    min-height: 80vh;
+    min-height: 85vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -384,7 +384,7 @@ a:hover {
 
 /* 确保文字在遮罩之上 */
 .hero-content {
-    max-width: 900px;
+    max-width: 2000px;
     padding: var(--spacing-md);
     position: relative;
     z-index: 2;
@@ -392,7 +392,7 @@ a:hover {
 }
 
 /* 可选：调整 h1 和 p 的颜色，如果背景较深 */
-.hero h1 {
+.hero h2 {
     color: var(--pure-white);
 }
 
